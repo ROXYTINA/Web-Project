@@ -1,0 +1,44 @@
+body{
+  background: linear-gradient(to right,#F398ED, #FFFFFF);
+}
+
+/* ===== Custom Styles for Greeting Page ===== */
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: transform 0.2s;
+}
+.card-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive container for main content */
+.container-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+/* Add any additional custom styles as needed */
+

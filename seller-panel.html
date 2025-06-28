@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEARY Seller Panel</title>
+    <link rel="stylesheet" href="/CSS/seller-panel.css"><!-- Added this line -->
+    <link rel="icon" type="icon" href="/image/pakred.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/flowbite@2.3.0/dist/flowbite.min.js"></script>
+</head>
+<body>
+<!-- ================= NAVIGATION BAR ================= -->
+<nav class="bg-gradient-to-r from-pink-100 via-pink-200 to-pink-300 shadow-lg border-b-2 border-pink-300 sticky top-0 z-40">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
+    <!-- Logo and Brand -->
+    <a href="Greetingpage.html" class="flex items-center space-x-3 rtl:space-x-reverse group">
+      <img src="/image/pkajompei.png" class="h-12 rounded-full border-2 border-pink-400 shadow-lg group-hover:scale-110 transition" alt="Logo" />
+      <span class="self-center text-3xl font-extrabold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent drop-shadow group-hover:drop-shadow-lg transition">Neary</span>
+    </a>
+    <!-- Navigation Links (Desktop) -->
+    <div class="hidden md:flex items-center space-x-6">
+      <a href="seller-panel.html" class="py-2 px-4 text-pink-900 font-semibold rounded-lg hover:bg-pink-100 hover:text-pink-700 transition">Dashboard</a>
+      <a href="started.html" class="py-2 px-4 text-pink-900 font-semibold rounded-lg hover:bg-pink-100 hover:text-pink-700 transition">Switch Role</a>
+      <a href="Greetingpage.html" class="py-2 px-4 text-pink-900 font-semibold rounded-lg hover:bg-pink-100 hover:text-pink-700 transition">Log Out</a>
+      <!-- Account Icon -->
+      <button id="customer-account-btn" class="flex items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-pink-300 hover:bg-pink-100 shadow transition overflow-hidden ml-2">
+        <img src="/image/acc-pic.jpg" alt="acc-icon" class="w-10 h-10 object-cover rounded-full">
+      </button>
+    </div>
+    <!-- Hamburger Menu (Mobile) -->
+    <div class="flex md:hidden items-center space-x-2 rtl:space-x-reverse">
+      <button id="customer-account-btn-mobile" class="flex items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-pink-300 hover:bg-pink-100 shadow transition overflow-hidden">
+        <img src="/image/acc-pic.jpg" alt="acc-icon" class="w-10 h-10 object-cover rounded-full">
+      </button>
+      <button data-collapse-toggle="navbar-cta-mobile" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-pink-600 rounded-lg hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 transition" aria-controls="navbar-cta-mobile" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Hamburger Dropdown Menu (Mobile) -->
+    <div class="hidden fixed top-20 right-4 w-56 bg-white rounded-lg shadow-lg z-50 border border-pink-200" id="navbar-cta-mobile">
+      <ul class="flex flex-col font-medium p-4 space-y-2 items-center">
+        <li>
+          <a href="seller-panel.html" class="block w-full text-left py-2 px-3 text-pink-900 font-semibold hover:bg-pink-100 rounded transition">Dashboard</a>
+        </li>
+        <li>
+          <a href="started.html" class="block w-full text-left py-2 px-3 text-pink-900 font-semibold hover:bg-pink-100 rounded transition">Switch Role</a>
+        </li>
+        <li>
+          <a href="Greetingpage.html" class="block w-full text-left py-2 px-3 text-pink-700 font-semibold hover:bg-pink-100 rounded transition">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- =============== ACCOUNT INFO PANEL =============== -->
+<div id="account-info-container" class="hidden fixed top-20 right-4 w-64 bg-white rounded-lg shadow-lg z-50 border border-pink-200 p-4">
+    <div class="flex flex-col items-center">
+        <span id="account-username" class="font-semibold text-lg mb-1">Username</span>
+        <span id="account-email" class="text-sm text-gray-600 mb-4">user@email.com</span>
+        <button onclick="window.location.href='logout.html'" class="w-full bg-pink-600 text-white py-2 rounded hover:bg-pink-700 mb-2">Log Out</button>
+        <button onclick="window.location.href='role-select.html'" class="w-full bg-pink-100 text-pink-900 py-2 rounded hover:bg-pink-200">Change Role</button>
+    </div>
+</div>
+
+<!-- =============== MAIN CONTENT =============== -->
+<main>
+  <div class="container mx-auto p-4">
+    <div class="flex flex-col items-center justify-center mb-8">
+        <div class="w-full">
+            <h1 class="text-4xl font-bold text-center mb-6">Your Seller Panel</h1>
+        </div>
+    </div>
+    <div class="w-full max-w-2xl mx-auto mb-10">
+      <h2 class="text-2xl font-bold text-pink-700 mb-4">Your Products</h2>
+      <!-- Product Form -->
+      <form id="product-form" class="bg-white rounded-xl shadow-lg p-8 flex flex-col md:flex-row md:items-end gap-6 mb-8 border border-pink-100">
+        <div class="flex flex-col items-center md:w-1/4 w-full">
+          <label for="product-image" class="mb-2 text-base font-semibold text-pink-700">Product Image</label>
+          <div class="relative group w-28 h-28 mb-2">
+            <input type="file" id="product-image" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer z-10" aria-label="Choose product image">
+            <div class="flex items-center justify-center w-28 h-28 rounded-lg border-2 border-dashed border-pink-300 bg-pink-50 group-hover:bg-pink-100 transition">
+              <img id="product-image-preview" src="" alt="Preview" class="hidden w-24 h-24 object-cover rounded-lg border-2 border-pink-200 shadow" />
+              <span id="product-image-placeholder" class="text-pink-300 text-4xl group-hover:text-pink-400 select-none">&#128247;</span>
+            </div>
+            <span class="block text-xs text-gray-400 mt-1 text-center">Click to upload</span>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full">
+          <input type="text" id="product-name" placeholder="Product Name" class="border-2 border-pink-200 rounded px-4 py-2 w-full focus:ring-2 focus:ring-pink-400 transition" required>
+          <input type="number" id="product-price" placeholder="Price" class="border-2 border-pink-200 rounded px-4 py-2 w-full focus:ring-2 focus:ring-pink-400 transition" min="0" required>
+          <select id="product-category" class="border-2 border-pink-200 rounded px-4 py-2 w-full focus:ring-2 focus:ring-pink-400 transition" required>
+            <option value="" disabled selected>Select Category</option>
+            <option value="Clothes">Clothes 👗</option>
+            <option value="Skincare">Skincare 🧴</option>
+            <option value="Makeup">Makeup 💄</option>
+            <option value="Accessories">Accessories 👜</option>
+            <option value="Other">Other ✨</option>
+          </select>
+          <input type="text" id="product-desc" placeholder="Description" class="border-2 border-pink-200 rounded px-4 py-2 w-full focus:ring-2 focus:ring-pink-400 transition">
+        </div>
+        <button type="submit" class="bg-gradient-to-r from-pink-500 to-pink-700 text-white px-8 py-3 rounded-xl font-bold shadow hover:scale-105 hover:from-pink-600 hover:to-pink-800 transition-all">Add / Update</button>
+      </form>
+      <!-- Product List -->
+      <div id="product-list" class="space-y-4"></div>
+    </div>
+  </div>
+</main>
+
+<!-- =================== FOOTER =================== -->
+<footer class="bg-pink-200 text-pink-900 mt-10">
+    <div class="container mx-auto px-4 py-6 flex flex-col items-center justify-center">
+        <div class="mb-4 text-center">
+            <span class="font-bold text-xl">Neary</span> &copy; 2025. All rights reserved.
+        </div>
+        <div class="flex space-x-6 justify-center">
+            <a href="https://web.facebook.com/kanha.roth.7334/" target="_blank" class="flex items-center hover:text-pink-600">
+                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.877v-6.987h-2.54v-2.89h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.261c-1.243 0-1.632.771-1.632 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12"></path></svg>
+                Facebook
+            </a>
+            <a href="https://instagram.com" target="_blank" class="flex items-center hover:text-pink-600">
+                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.281-.058-2.417-.317-3.374-1.274-.957-.957-1.216-2.093-1.274-3.374C2.012 15.668 2 15.259 2 12s.012-3.584.07-4.85c.058-1.281.317-2.417 1.274-3.374.957-.957 2.093-1.216 3.374-1.274C8.332.012 8.741 0 12 0z"/><path d="M12 5.838A6.162 6.162 0 0 0 5.838 12 6.162 6.162 0 0 0 12 18.162 6.162 6.162 0 0 0 18.162 12 6.162 6.162 0 0 0 12 5.838zm0 10.324A4.162 4.162 0 1 1 16.162 12 4.162 4.162 0 0 1 12 16.162zm6.406-11.845a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44z"/></svg>
+                Instagram
+            </a>
+            <a href="https://t.me/yourtelegram" target="_blank" class="flex items-center hover:text-pink-600">
+                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M9.036 16.572l-.398 5.617c.57 0 .816-.246 1.113-.543l2.668-2.56 5.528 4.04c1.012.557 1.736.264 1.99-.937l3.612-16.964c.329-1.527-.553-2.127-1.54-1.76L2.22 9.75c-1.49.581-1.473 1.41-.254 1.788l5.728 1.788 13.292-8.36c.623-.39 1.19-.174.724.216l-10.674 9.39z"/></svg>
+                Telegram
+            </a>
+            <a href="https://tiktok.com/@yourtiktok" target="_blank" class="flex items-center hover:text-pink-600">
+                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 48 48"><path d="M41.6,17.1c-2.7,0-5.1-0.9-7.1-2.5v13.2c0,6.2-5,11.2-11.2,11.2S12,34,12,27.8c0-6.2,5-11.2,11.2-11.2c0.5,0,1,0,1.5,0.1v4.1c-0.5-0.1-1-0.1-1.5-0.1c-3.9,0-7.1,3.2-7.1,7.1c0,3.9,3.2,7.1,7.1,7.1c3.9,0,7.1-3.2,7.1-7.1V6.4h4.1c0,2.7,2.2,4.9,4.9,4.9V17.1z"/></svg>
+                TikTok
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- ================== JAVASCRIPT ================== -->
+<script>
+/* ================== ACCOUNT PANEL LOGIC ==================
+   - Toggles the account info panel when the account icon is clicked
+   - Fills in username and email from localStorage
+*/
+document.addEventListener('DOMContentLoaded', function() {
+  const accountBtn = document.getElementById('customer-account-btn');
+  if (accountBtn) {
+    accountBtn.addEventListener('click', function() {
+      const container = document.getElementById('account-info-container');
+      container.classList.toggle('hidden');
+    });
+  }
+  const username = localStorage.getItem('username');
+  const email = localStorage.getItem('email');
+  if (username) document.getElementById('account-username').textContent = username;
+  if (email) document.getElementById('account-email').textContent = email;
+
+  /* ================== PRODUCT MANAGEMENT LOGIC ==================
+     - Handles product CRUD (Create, Read, Update, Delete)
+     - Stores products in localStorage
+     - Supports image preview and editing
+  */
+  function getProducts() {
+    return JSON.parse(localStorage.getItem('seller_products') || '[]');
+  }
+  function saveProducts(products) {
+    localStorage.setItem('seller_products', JSON.stringify(products));
+  }
+  function renderProducts() {
+    const products = getProducts();
+    const list = document.getElementById('product-list');
+    if (!list) return;
+    list.innerHTML = products.length === 0
+      ? '<div class="text-gray-500 text-center">No products yet.</div>'
+      : products.map((p, i) => `
+        <div class="bg-pink-50 rounded p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2 border-l-4 ${getCategoryColor(p.category)}">
+          <div>
+            <div class="font-bold text-lg">${p.name}</div>
+            <div class="inline-block px-2 py-1 text-xs rounded ${getCategoryBadgeColor(p.category)} mb-1">${p.category || 'Uncategorized'}</div>
+            <div class="text-pink-700 font-semibold">$${p.price}</div>
+            <div class="text-gray-600">${p.desc || ''}</div>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="editProduct(${i})" class="px-3 py-1 bg-yellow-400 text-white rounded hover:bg-yellow-500">Edit</button>
+            <button onclick="deleteProduct(${i})" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600">Delete</button>
+          </div>
+        </div>
+      `).join('');
+  }
+  // Helpers for category color
+  window.getCategoryColor = function(category) {
+    switch(category) {
+      case 'Clothes': return 'border-blue-400';
+      case 'Skincare': return 'border-green-400';
+      case 'Makeup': return 'border-pink-400';
+      case 'Accessories': return 'border-yellow-400';
+      case 'Other': return 'border-gray-400';
+      default: return 'border-gray-200';
+    }
+  };
+  window.getCategoryBadgeColor = function(category) {
+    switch(category) {
+      case 'Clothes': return 'bg-blue-100 text-blue-700';
+      case 'Skincare': return 'bg-green-100 text-green-700';
+      case 'Makeup': return 'bg-pink-100 text-pink-700';
+      case 'Accessories': return 'bg-yellow-100 text-yellow-700';
+      case 'Other': return 'bg-gray-100 text-gray-700';
+      default: return 'bg-gray-100 text-gray-700';
+    }
+  };
+
+  // Product form logic (add/update)
+  let editIndex = null;
+  let imageData = "";
+  const imageInput = document.getElementById('product-image');
+  const imagePreview = document.getElementById('product-image-preview');
+  const imagePlaceholder = document.getElementById('product-image-placeholder');
+
+  // Image preview logic
+  if (imageInput) {
+    imageInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          imageData = evt.target.result;
+          imagePreview.src = imageData;
+          imagePreview.classList.remove('hidden');
+          imagePlaceholder.classList.add('hidden');
+        };
+        reader.readAsDataURL(file);
+      } else {
+        imageData = "";
+        imagePreview.src = "";
+        imagePreview.classList.add('hidden');
+        imagePlaceholder.classList.remove('hidden');
+      }
+    });
+  }
+
+  // Add or update product
+  document.getElementById('product-form').onsubmit = function(e) {
+    e.preventDefault();
+    const name = document.getElementById('product-name').value.trim();
+    const price = document.getElementById('product-price').value.trim();
+    const desc = document.getElementById('product-desc').value.trim();
+    const category = document.getElementById('product-category').value;
+    let products = getProducts();
+    if (!name || !price || !category) return;
+    if (editIndex !== null) {
+      products[editIndex] = { name, price, desc, category, image: imageData };
+      editIndex = null;
+    } else {
+      products.push({ name, price, desc, category, image: imageData });
+    }
+    saveProducts(products);
+    this.reset();
+    imagePreview.classList.add('hidden');
+    imagePlaceholder.classList.remove('hidden');
+    imageData = "";
+    renderProducts();
+  };
+
+  // Edit product
+  window.editProduct = function(i) {
+    const products = getProducts();
+    const p = products[i];
+    document.getElementById('product-name').value = p.name;
+    document.getElementById('product-price').value = p.price;
+    document.getElementById('product-desc').value = p.desc || '';
+    document.getElementById('product-category').value = p.category || '';
+    if (p.image) {
+      imagePreview.src = p.image;
+      imagePreview.classList.remove('hidden');
+      imagePlaceholder.classList.add('hidden');
+      imageData = p.image;
+    } else {
+      imagePreview.src = "";
+      imagePreview.classList.add('hidden');
+      imagePlaceholder.classList.remove('hidden');
+      imageData = "";
+    }
+    editIndex = i;
+  };
+
+  // Delete product
+  window.deleteProduct = function(i) {
+    let products = getProducts();
+    products.splice(i, 1);
+    saveProducts(products);
+    renderProducts();
+  };
+
+  // Initial render
+  renderProducts();
+});
+</script>
+</body>
+</html>

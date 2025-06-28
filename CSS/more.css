@@ -1,0 +1,43 @@
+/* ===== Custom Styles for More Page ===== */
+body{
+    background: linear-gradient(to right,#F398ED, #FFFFFF);
+}
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to right, #F398ED, #FFFFFF);
+}
+
+main, .container {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+/* Card hover effect for more page items */
+.more-card {
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.more-card:hover {
+  box-shadow: 0 4px 24px 0 rgba(236, 72, 153, 0.15);
+  transform: scale(1.03);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* Add any additional custom styles as needed */

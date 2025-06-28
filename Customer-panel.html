@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEARY</title>
+  <link rel="stylesheet" href="customer-panel.css">
+  <link rel="icon" type="icon" href="/image/pakred.png">
+  <link rel="stylesheet" href="/CSS/customer-panel.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/flowbite@2.3.0/dist/flowbite.min.js"></script>
+</head>
+<body>
+
+<!-- ================= NAVIGATION BAR ================= -->
+<nav class="bg-gradient-to-r from-pink-100 via-pink-200 to-pink-300 shadow-lg border-b-2 border-pink-300 sticky top-0 z-40">
+  <div class="flex flex-wrap items-center justify-between mx-auto p-3">
+    <a href="Customer-panel.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="/image/pkajompei.png" class="h-12 rounded-full border-2 border-pink-400 shadow" alt="Logo" />
+      <span class="self-center text-3xl font-extrabold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent drop-shadow">Neary</span>
+    </a>
+    <div class="flex items-center space-x-4 rtl:space-x-reverse">
+      <!-- Account Icon -->
+      <button id="customer-account-btn" class="flex items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-pink-300 hover:bg-pink-100 shadow transition overflow-hidden">
+        <img src="/image/acc-pic.jpg" alt="acc-icon" class="w-10 h-10 object-cover rounded-full">
+      </button>
+      <!-- Cart Icon -->
+      <button id="cart-btn" class="relative flex items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-pink-300 hover:bg-pink-100 shadow transition ml-2">
+        <!-- Cart SVG Icon -->
+        <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="9" cy="21" r="1.5"/>
+          <circle cx="19" cy="21" r="1.5"/>
+          <path d="M3 6h2l.4 2M7 13h10l4-8H5.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <!-- Cart count badge -->
+        <span id="cart-count" class="absolute -top-1 -right-1 bg-pink-600 text-white text-xs rounded-full px-1.5 py-0.5 font-bold hidden">0</span>
+      </button>
+      <!-- Hamburger Menu -->
+      <button data-collapse-toggle="navbar-cta-mobile" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-pink-600 rounded-lg hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 transition" aria-controls="navbar-cta-mobile" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div class="hidden fixed top-20 right-4 w-56 bg-white rounded-lg shadow-lg z-50 border border-pink-200" id="navbar-cta-mobile">
+      <ul class="flex flex-col font-medium p-4 space-y-2 items-center">
+        <li>
+          <button onclick="window.location.href='Greetingpage.html'" class="block w-full text-left py-2 px-3 text-pink-700 font-semibold hover:bg-pink-100 rounded transition">Log Out</button>
+        </li>
+        <li>
+          <button onclick="window.location.href='started.html'" class="block w-full text-left py-2 px-3 text-pink-900 hover:bg-pink-100 rounded transition">Change Role</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- =============== ACCOUNT INFO PANEL =============== -->
+<div id="account-info-container" class="hidden fixed top-20 right-4 w-64 bg-white rounded-lg shadow-lg z-50 border border-pink-200 p-4">
+  <div class="flex flex-col items-center">
+    <span id="account-username" class="font-semibold text-lg mb-1">Username</span>
+    <span id="account-email" class="text-sm text-gray-600 mb-4">user@email.com</span>
+    <button onclick="window.location.href='Greetingpage.html'" class="w-full bg-pink-600 text-white py-2 rounded hover:bg-pink-700 mb-2">Log Out</button>
+    <button onclick="window.location.href='started.html'" class="w-full bg-pink-100 text-pink-900 py-2 rounded hover:bg-pink-200">Change Role</button>
+  </div>
+</div>
+
+<!-- ================== PRODUCT LIST ================== -->
+<div class="container mx-auto p-4">
+  <div class="flex flex-col items-center justify-center mb-8">
+    <div class="w-full">
+      <h1 class="text-4xl font-bold text-center mb-6">EXPLORE and BUY!!!!</h1>
+    </div>
+  </div>
+  <!-- Products Section -->
+  <h2 class="text-2xl font-semibold mb-4">CLOTHES</h2>
+  <!-- Update each product card to include product-card class and data-* attributes -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name="Leather outerwear"
+           data-price="$10"
+           data-description="Effortlessly cool leather outerwear designed in Paris. The edit evolves each season as women’s lives inspire us."
+           data-seller="Seller 1"
+           data-category="Clothes"
+           data-img="/image/product-img/product1.jpg">
+        <img src="/image/product-img/product1.jpg" alt="Product 1" class="w-40 h-40 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1">Leather outwear</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$10</p>
+        <button  class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+      
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name="Ruffle Trim Floral Decor Skirt"
+           data-price="$5"
+           data-description="Another awesome product.High quality and affordable price."
+           data-seller="kiki"
+           data-category="Clothes"
+           data-img="/image/product-img/product2.jpg">
+        <img src="/image/product-img/product2.jpg" alt="Product 2" class="w-32 h-32 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1">Ruffle Trim Floral Decor Skirt</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$5</p>
+        <button class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name="Ruffle Hem Strapless Dress"
+           data-price="$8"
+           data-description="Flirla Plus Size Women's Solid Color Ruffle Hem Strapless Dress"
+           data-seller="lyly"
+           data-category="Clothes"
+           data-img="/image/product-img/product3.jpg">
+        <img src="/image/product-img/product3.jpg" alt="Product 3" class="w-32 h-32 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1">Ruffle Hem Strapless Dress</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$8</p>
+        <button class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+  </div>
+
+  <!-- SKIN CARE section: add product-card class and data-* attributes -->
+  <h2 class="text-2xl font-semibold mb-4 mt-10">BAGS & PURSES</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name="Leather Motorcycle Bag"
+           data-price="$10"
+           data-description="1pc Women's Vintage Milady Distressed Soft Leather Motorcycle Bag With Rivets, Needle Buckle, Pleats, Cloud Shaped, Shoulder Crossbody And Clutch Bag For Work, Commuting, Dating, Parties, Crescent Moon Bag For Women, Fashionable Burgundy Bag, Retro Inspired Bag For Women, Vintage Bag For Women"
+           data-seller="Seller 2"
+           data-category="BAGS & PURSES"
+           data-img="/image/product-img/product4.jpg">
+        <img src="/image/product-img/product4.jpg" alt="Product 4" class="w-32 h-32 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1">Leather Motorcycle Bag</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$10</p>
+        <button class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name="MIU MIU Bag"
+           data-price="$7"
+           data-description="Description for Product 5"
+           data-seller="Seller 5"
+           data-category="BAGS & PURSES"
+           data-img="/image/product-img/product5.jpg">
+        <img src="/image/product-img/product5.jpg" alt="Product 5" class="w-32 h-32 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1">MIU MIU Bag</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$7</p>
+        <button class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name="Tay Tay Bag"
+           data-price="$6"
+           data-description="Really good condition only used a couple times"
+           data-seller="Lyly"
+           data-category="BAGS & PURSES"
+           data-img="/image/product-img/product6.jpg">
+        <img src="/image/product-img/product6.jpg" alt="Product 6" class="w-32 h-32 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1">Tay Tay Bag</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$6</p>
+        <button  class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+  </div>
+
+  <!-- MAKE UP section: add product-card class and data-* attributes -->
+  <h2 class="text-2xl font-semibold mb-4 mt-10">MAKE UP</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name="Rhode Skin"
+           data-price="$5"
+           data-description="Raspberry Peptide Lip Tint; Rhode Skin"
+           data-seller="Seller 4"
+           data-category="MAKE UP"
+           data-img="/image/product-img/product7.jpg">
+        <img src="/image/product-img/product7.jpg" alt="Product 7" class="w-32 h-32 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1">Rhode Skin</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$5</p>
+        <button class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name="Vanille Antique perfume"
+           data-price="$15"
+           data-description="Want To Smell Like A Vanilla Snack? Here Are 10 Fragrances You Need To Try"
+           data-seller="Seller 3"
+           data-category="MAKE UP"
+           data-img="/image/product-img/product8.jpg">
+        <img src="/image/product-img/product8.jpg" alt="Product 8" class="w-32 h-32 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1">Vanille Antique perfume</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$15</p>
+        <button class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name="Buttermelt Blush"
+           data-price="$10"
+           data-description="Get a natural glossy finish with the various shades of Buttermelt Blush"
+           data-seller="Lyly"
+           data-category="MAKE UP"
+           data-img="/image/product-img/product9.jpg">
+        <img src="/image/product-img/product9.jpg" alt="Product 9" class="w-32 h-32 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1">Buttermelt Blush</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$10</p>
+        <button class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+  </div>
+
+  <!-- Accessories section: add product-card class and data-* attributes -->
+  <h2 class="text-2xl font-semibold mb-4">ACCESSORIES</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name="Bulgari Serpenti Jewelery Scaglie"
+           data-price="$10"
+           data-description="Bulgari Serpenti Jewelery Scaglie 26mm"
+           data-seller="Seller 10"
+           data-category="Accessories"
+           data-img="/image/product-img/product1o.jpg">
+        <img src="/image/product-img/product10.jpg" alt="Product 10" class="w-32 h-32 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1">Bulgari Serpenti Jewelery Scaglie</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$10</p>
+        <button class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name=" Concho Belt"
+           data-price="$11"
+           data-description="Tony Lama Women's Nicole Concho Belt"
+           data-seller="Seller 2"
+           data-category="Accessories"
+           data-img="/image/product-img/product11.jpg">
+        <img src="/image/product-img/product11.jpg" alt="Product 11" class="w-32 h-32 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1"> Concho Belt</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$11</p>
+        <button class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name="chrome heart glasses"
+           data-price="$7"
+           data-description="chrome heart glasses"
+           data-seller="Seller 4"
+           data-category="Accessories"
+           data-img="/image/product-img/product12.jpg">
+        <img src="/image/product-img/product12.jpg" alt="Product 12" class="w-32 h-32 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1">chrome heart glasses</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$7</p>
+        <button class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+  </div>
+
+  <!-- Jewery section: add product-card class and data-* attributes -->
+  <h2 class="text-2xl font-semibold mb-4">JEWERY</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name="Upper Arm Bracelet Cuff Bangle"
+           data-price="$10"
+           data-description="Caiyao Wings Boho Upper Arm Bracelet Cuff Bangle Gold Silver Angel Wings Open Upper Arm Bangle Bracelet Adjustable Armband Jewelry for Women"
+           data-seller="Seller 3"
+           data-category="Jewery"
+           data-img="/image/product-img/product13.jpg">
+        <img src="/image/product-img/product13.jpg" alt="Product 13" class="w-32 h-32 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1">Upper Arm Bracelet Cuff Bangle</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$10</p>
+        <button class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name=" Wrap Bangle Bracelet"
+           data-price="$50"
+           data-description="Serpenti Viper 18K Yellow Gold & Diamond Wrap Bangle Bracelet"
+           data-seller="Seller 4"
+           data-category="Jewery"
+           data-img="/image/product-img/product14.jpg">
+        <img src="/image/product-img/product14.jpg" alt="Product 14" class="w-32 h-32 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1">Wrap Bangle Bracelet</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$50</p>
+        <button class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+      <div class="border rounded-lg p-4 flex flex-col items-center cursor-pointer product-card"
+           data-name="Tiffany Knot RING in 18-carat yellow gold"
+           data-price="$70"
+           data-description="Tiffany Knot RING in 18-carat yellow gold"
+           data-seller="Seller 3"
+           data-category="Jewery"
+           data-img="/image/product-img/product15.jpg">
+        <img src="/image/product-img/product15.jpg" alt="Product 15" class="w-32 h-32 object-cover mb-2">
+        <h3 class="font-bold text-lg mb-1">Tiffany Knot RING in 18-carat yellow gold</h3>
+        <p class="mb-2 text-pink-700 font-semibold">$70</p>
+        <button class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">Add to Cart</button>
+      </div>
+  </div>
+</div>
+<!-- Product Info Modal/Panel -->
+<div id="product-info-panel" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
+    <button id="close-product-info" class="absolute top-2 right-2 text-pink-700 hover:text-pink-900 text-2xl font-bold">&times;</button>
+    <img id="panel-product-img" src="" alt="Product" class="w-32 h-32 object-cover mx-auto mb-4 rounded-lg border-2 border-pink-200">
+    <h3 id="panel-product-name" class="text-2xl font-bold mb-2 text-center"></h3>
+    <p id="panel-product-price" class="text-pink-700 font-semibold text-center mb-2"></p>
+    <p id="panel-product-category" class="text-sm text-pink-500 text-center mb-2"></p>
+    <p id="panel-product-description" class="mb-2 text-center"></p>
+    <p id="panel-product-seller" class="text-sm text-gray-600 text-center mb-4"></p>
+    <button class="bg-pink-600 text-white px-6 py-2 rounded-lg w-full hover:bg-pink-700">Add to Cart</button>
+  </div>
+</div>
+
+<!-- =============== CART PANEL =============== -->
+<div id="cart-panel" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-8 relative border-2 border-pink-200">
+    <button id="close-cart-panel" class="absolute top-3 right-4 text-pink-700 hover:text-pink-900 text-3xl font-bold transition">&times;</button>
+    <h2 class="text-3xl font-extrabold mb-6 text-center text-pink-700 tracking-wide">🛒 Your Cart</h2>
+    <div id="cart-items" class="mb-6 max-h-64 overflow-y-auto space-y-4"></div>
+    <div class="flex items-center justify-between mb-6">
+      <span class="font-semibold text-lg text-pink-700">Total:</span>
+      <span class="font-bold text-2xl text-pink-900">$<span id="cart-total">0.00</span></span>
+    </div>
+    <button class="bg-gradient-to-r from-pink-500 to-pink-700 text-white px-8 py-3 rounded-xl font-bold shadow hover:scale-105 hover:from-pink-600 hover:to-pink-800 transition-all w-full text-lg flex items-center justify-center gap-2">
+      <svg class="w-6 h-6 inline-block mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M3 6h2l.4 2M7 13h10l4-8H5.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="9" cy="21" r="1.5"/>
+        <circle cx="19" cy="21" r="1.5"/>
+      </svg>
+      Checkout
+    </button>
+  </div>
+</div>
+
+<!-- =============== CHECKOUT PANEL =============== -->
+<div id="checkout-panel" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 relative border-2 border-pink-200">
+    <button id="close-checkout-panel" class="absolute top-3 right-4 text-pink-700 hover:text-pink-900 text-3xl font-bold transition">&times;</button>
+    <h2 class="text-3xl font-extrabold mb-6 text-center text-pink-700 tracking-wide">Checkout</h2>
+    <form id="checkout-form" class="space-y-4">
+      <div>
+        <label class="block font-semibold text-pink-700 mb-1" for="checkout-address">Address</label>
+        <textarea id="checkout-address" required class="w-full border-2 border-pink-200 rounded px-4 py-2 focus:ring-2 focus:ring-pink-400 transition" placeholder="Delivery Address"></textarea>
+      </div>
+      <div>
+        <label class="block font-semibold text-pink-700 mb-2">Payment Method</label>
+        <div class="flex flex-col gap-2">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="payment-method" value="cash" required class="accent-pink-600">
+            <span>Cash on Delivery</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="payment-method" value="card" class="accent-pink-600">
+            <span>Credit/Debit Card</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="payment-method" value="qr" class="accent-pink-600">
+            <span>QR Code</span>
+          </label>
+        </div>
+      </div>
+      <div id="card-fields" class="hidden">
+        <label class="block font-semibold text-pink-700 mb-1" for="card-number">Card Number</label>
+        <input id="card-number" type="text" maxlength="19" class="w-full border-2 border-pink-200 rounded px-4 py-2 mb-2" placeholder="1234 5678 9012 3456">
+        <div class="flex gap-2">
+          <input id="card-expiry" type="text" maxlength="5" class="w-1/2 border-2 border-pink-200 rounded px-4 py-2" placeholder="MM/YY">
+          <input id="card-cvc" type="text" maxlength="4" class="w-1/2 border-2 border-pink-200 rounded px-4 py-2" placeholder="CVC">
+        </div>
+      </div>
+      <div id="qr-fields" class="hidden text-center">
+        <div class="font-semibold text-pink-700 mb-2">Scan to Pay</div>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=neary-payment" alt="QR Code" class="mx-auto rounded border-2 border-pink-200 shadow mb-2">
+        <div class="text-xs text-gray-500">Scan this QR code with your banking app to pay.</div>
+      </div>
+      <div class="flex items-center justify-between mt-6">
+        <span class="font-semibold text-lg text-pink-700">Total:</span>
+        <span class="font-bold text-2xl text-pink-900">$<span id="checkout-total">0.00</span></span>
+      </div>
+      <button type="submit" class="bg-gradient-to-r from-pink-500 to-pink-700 text-white px-8 py-3 rounded-xl font-bold shadow hover:scale-105 hover:from-pink-600 hover:to-pink-800 transition-all w-full text-lg flex items-center justify-center gap-2 mt-4">
+        <svg class="w-6 h-6 inline-block mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h2l.4 2M7 13h10l4-8H5.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="9" cy="21" r="1.5"/>
+          <circle cx="19" cy="21" r="1.5"/>
+        </svg>
+        Confirm Order
+      </button>
+    </form>
+    <div id="checkout-success" class="hidden text-center mt-6">
+      <div class="text-2xl text-pink-600 font-bold mb-2">Thank you for your order!</div>
+      <div class="text-pink-700">We have received your order and will contact you soon.</div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== FOOTER =================== -->
+<footer class="bg-pink-200 text-pink-900 mt-10">
+  <div class="container mx-auto px-4 py-6 flex flex-col items-center justify-center">
+    <div class="mb-4 text-center">
+      <span class="font-bold text-xl">Neary</span> &copy; 2025. All rights reserved.
+    </div>
+    <div class="flex space-x-6 justify-center">
+      <a href="https://web.facebook.com/kanha.roth.7334/" target="_blank" class="flex items-center hover:text-pink-600">
+          <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.877v-6.987h-2.54v-2.89h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.261c-1.243 0-1.632.771-1.632 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12"></path></svg>
+          Facebook
+      </a>
+      <a href="https://instagram.com" target="_blank" class="flex items-center hover:text-pink-600">
+          <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.281-.058-2.417-.317-3.374-1.274-.957-.957-1.216-2.093-1.274-3.374C2.012 15.668 2 15.259 2 12s.012-3.584.07-4.85c.058-1.281.317-2.417 1.274-3.374.957-.957 2.093-1.216 3.374-1.274C8.332.012 8.741 0 12 0z"/><path d="M12 5.838A6.162 6.162 0 0 0 5.838 12 6.162 6.162 0 0 0 12 18.162 6.162 6.162 0 0 0 18.162 12 6.162 6.162 0 0 0 12 5.838zm0 10.324A4.162 4.162 0 1 1 16.162 12 4.162 4.162 0 0 1 12 16.162zm6.406-11.845a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44z"/></svg>
+          Instagram
+      </a>
+      <a href="https://t.me/yourtelegram" target="_blank" class="flex items-center hover:text-pink-600">
+          <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M9.036 16.572l-.398 5.617c.57 0 .816-.246 1.113-.543l2.668-2.56 5.528 4.04c1.012.557 1.736.264 1.99-.937l3.612-16.964c.329-1.527-.553-2.127-1.54-1.76L2.22 9.75c-1.49.581-1.473 1.41-.254 1.788l5.728 1.788 13.292-8.36c.623-.39 1.19-.174.724.216l-10.674 9.39z"/></svg>
+          Telegram
+      </a>
+      <a href="https://tiktok.com/@yourtiktok" target="_blank" class="flex items-center hover:text-pink-600">
+          <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 48 48"><path d="M41.6,17.1c-2.7,0-5.1-0.9-7.1-2.5v13.2c0,6.2-5,11.2-11.2,11.2S12,34,12,27.8c0-6.2,5-11.2,11.2-11.2c0.5,0,1,0,1.5,0.1v4.1c-0.5-0.1-1-0.1-1.5-0.1c-3.9,0-7.1,3.2-7.1,7.1c0,3.9,3.2,7.1,7.1,7.1c3.9,0,7.1-3.2,7.1-7.1V6.4h4.1c0,2.7,2.2,4.9,4.9,4.9V17.1z"/></svg>
+          TikTok
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="/JS/Customer-panel.js"></script>
+
+</body>
+</html>
